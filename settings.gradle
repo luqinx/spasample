@@ -1,0 +1,6 @@
+include ':interfaces'
+include ':C'
+include ':B'
+include ':A'
+include ':app'
+rootProject.name = "SPASample"
