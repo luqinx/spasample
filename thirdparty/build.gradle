@@ -1,0 +1,73 @@
+apply plugin: 'com.android.library'
+
+android {
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+//        ndk {
+//            abiFilters 'armeabi'
+//        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+
+    debugImplementation 'com.didichuxing.doraemonkit:doraemonkit:3.2.0'
+    releaseImplementation 'com.didichuxing.doraemonkit:doraemonkit-no-op:3.2.0'
+
+
+    //友盟
+//    implementation "com.umeng.umsdk:common:9.1.0" //（必选）
+//    implementation "com.umeng.umsdk:asms:1.1.3" // asms包依赖(必选)
+//    implementation "com.umeng.umsdk:crash:0.0.4" // native crash包依赖(必选)
+//    implementation "com.umeng.umsdk:share-core:7.0.2" // 友盟分享核心库
+//    implementation "com.umeng.umsdk:share-board:7.0.2"
+//    implementation "com.umeng.umsdk:share-qq:7.0.2"
+//    implementation "com.umeng.umsdk:share-wx:7.0.2"
+
+
+    implementation "com.tencent.bugly:crashreport:latest.release"
+    implementation "com.tencent.bugly:nativecrashreport:latest.release"
+
+
+    implementation 'com.qiyukf.unicorn:unicorn:5.13.0'
+
+
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+
+
+
+    implementation project(':interfaces')
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    implementation 'chao.android.tools:spa:1.5.5'
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+    implementation 'cn.bingoogolapple:bga-swipebacklayout:2.0.1'
+
+
+
+}

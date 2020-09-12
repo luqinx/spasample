@@ -18,7 +18,12 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            buildConfigField "String", "BUGLY_ID", "\"64623d5f4c\""
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField "String", "BUGLY_ID", "\"64623d5f4c\""
         }
     }
 }
@@ -35,5 +40,7 @@ dependencies {
     implementation project(':C')
     implementation project(':interfaces')
 
-    implementation 'chao.android.tools:sprouter:1.5.4'
+    implementation project(':thirdparty')
+
+    implementation 'chao.android.tools:sprouter:1.5.5'
 }

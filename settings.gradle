@@ -3,4 +3,5 @@ include ':C'
 include ':B'
 include ':A'
 include ':app'
+include ':thirdparty'
 rootProject.name = "SPASample"

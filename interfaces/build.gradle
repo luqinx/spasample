@@ -1,8 +1,8 @@
-apply plugin: 'java-library'
+apply plugin: 'com.android.library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api 'chao.android.tools:spa:1.5.4'
+    api 'chao.android.tools:spa:1.5.5'
 }
 
 sourceCompatibility = "1.7"
