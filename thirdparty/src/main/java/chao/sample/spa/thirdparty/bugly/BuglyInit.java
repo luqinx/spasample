@@ -9,7 +9,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import chao.android.tools.servicepool.Spa;
 import chao.sample.interfaces.thirdparty.BuildService;
+import chao.sample.interfaces.thirdparty.ContextService;
 
 /**
  * @author luqin
@@ -19,7 +21,10 @@ public class BuglyInit {
 
     static boolean sInit = false;
 
-    public static void init(Context context, BuildService buildService) {
+    public static void init() {
+        ContextService contextService = Spa.getService(ContextService.class);
+        Context context = contextService.getApplicationContext();
+
         // 获取当前包名
         String packageName = context.getPackageName();
         // 获取当前进程名
@@ -27,8 +32,11 @@ public class BuglyInit {
         // 设置是否为上报进程
         CrashReport.UserStrategy strategy = new CrashReport.UserStrategy(context);
         strategy.setUploadProcess(processName == null || processName.equals(packageName));
+
+        BuildService buildService = Spa.getService(BuildService.class);
+        String buglyId = buildService.buglyId();
 //         初始化Bugly
-        CrashReport.initCrashReport(context, buildService.buglyId(), false, strategy);
+        CrashReport.initCrashReport(context, buglyId, false, strategy);
 
 //        CrashReport.initCrashReport(context, buildService.buglyAppId(), buildService.debuggable(), strategy);
 
