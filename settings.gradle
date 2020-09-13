@@ -1,3 +1,4 @@
+include ':pages'
 include ':interfaces'
 include ':C'
 include ':B'
