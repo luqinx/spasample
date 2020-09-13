@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private static interface Action {
+    private interface Action {
         void action();
     }
 

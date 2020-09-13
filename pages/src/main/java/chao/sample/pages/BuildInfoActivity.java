@@ -18,7 +18,7 @@ import chao.sample.pages.databinding.*;
  * @since 2020/9/13
  */
 @Service(path = RouteService.buildInfo)
-public class BuildInfoActivity extends AppCompatActivity {
+public class BuildInfoActivity extends SwipeBackActivity {
 
     @SuppressLint("SetTextI18n")
     @Override
